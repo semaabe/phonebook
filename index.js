@@ -4,6 +4,8 @@ const app=express()
 const cors = require('cors')
 
 app.use(cors())
+
+app.use(express.static('dist'))
 let persons=[
     { 
       id: '1',
@@ -98,7 +100,7 @@ app.post('/api/persons', (request, response) => {
 
 // })
 
-const PORT=3004
+const PORT=process.env.PORT || 3004
 app.listen(PORT, ()=>{
     console.log(`server running on port ${PORT}`)
 })
